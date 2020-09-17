@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
         name="liblora",
-        version="0.0.1",
+        version="0.0.2",
         author="Michael Kuyper",
         author_email="mkuyper@mkdata.ch",
         description="A library with functions related to LoRaWAN, derived from Basic MAC",
