@@ -1,3 +1,4 @@
+# Copyright (C) 2020-2020 Michael Kuyper. All rights reserved.
 # Copyright (C) 2016-2019 Semtech (International) AG. All rights reserved.
 #
 # This file is subject to the terms and conditions defined in file 'LICENSE',
@@ -152,11 +153,11 @@ def pack_dataframe (mhdr:int = FrmType.DAUP|Major.V1,
                     devaddr:int = 0,
                     fctrl:int = 0,
                     fcnt:int = 0,            # 32bit counter required if nwkskey or appskey present
-                    fopts:Union[bytes,bytearray] = None,
-                    port:int = None,
-                    payload:bytes = None,
-                    nwkskey:bytes = None,
-                    appskey:bytes = None) -> bytes:
+                    fopts:Optional[Union[bytes,bytearray]] = None,
+                    port:Optional[int] = None,
+                    payload:Optional[bytes] = None,
+                    nwkskey:Optional[bytes] = None,
+                    appskey:Optional[bytes] = None) -> bytes:
     """Pack parameters into a data frame pdu with the following layout:
     
     +-----+---------+-----+-------+-------+------+---------+-----+---------+

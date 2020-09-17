@@ -1,9 +1,10 @@
+# Copyright (C) 2020-2020 Michael Kuyper. All rights reserved.
 # Copyright (C) 2016-2019 Semtech (International) AG. All rights reserved.
 #
 # This file is subject to the terms and conditions defined in file 'LICENSE',
 # which is part of this source code package.
 
-from typing import Callable,Dict,List,Tuple,Union
+from typing import Any,Callable,Dict,List,Tuple,Union
 import re
 
 class BF():
@@ -177,6 +178,11 @@ class Opt():
 
     def __str__(self) -> str:
         return '%s<%s>' % (self.NAME, ' '.join(map(str, self.args)))
+
+    def __eq__(self, other:Any) -> bool:
+        return (isinstance(other, Opt)
+                and self.CMD == other.CMD
+                and [a.value for a in self.args] == [a.value for a in other.args])
 
     def set(self, **kwargs) -> None:
         for k,v in kwargs.items():
